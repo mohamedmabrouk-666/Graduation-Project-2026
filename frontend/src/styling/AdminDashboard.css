@@ -1,0 +1,91 @@
+.dashboard-wrapf0f4f8per {
+  background: #; /* Soft light beige */
+  min-height: 100vh;
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+/* Page background */
+
+/* Box for dashboard */
+.dashboard-box {
+  background: #fff;
+  width: 900px;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+}
+
+/* Titles */
+.dashboard-title {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.add-product-form h3,
+.products-table h3 {
+  margin-top: 20px;
+  margin-bottom: 15px;
+  font-weight: 500;
+  color: #333;
+}
+
+/* Form inputs */
+.add-product-form input {
+  padding: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.add-product-form button {
+  padding: 10px 15px;
+  background-color: #f7ca00; /* Amazon-style yellow */
+  border: 1px solid #a88734;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.2s;
+  font-weight: bold;
+}
+
+.add-product-form button:hover {
+  background-color: #ddb400;
+}
+
+/* Table styles */
+.products-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+.products-table th,
+.products-table td {
+  padding: 12px 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.products-table th {
+  background-color: #f7f7f7;
+  font-weight: 600;
+}
+
+/* Delete button */
+.delete-btn {
+  padding: 6px 12px;
+  background-color: #ff4d4f;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.delete-btn:hover {
+  background-color: #d9363e;
+}

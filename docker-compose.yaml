@@ -1,0 +1,53 @@
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql-for-myshop
+    environment:
+      MYSQL_ROOT_PASSWORD: 123
+      MYSQL_DATABASE: myshop_users
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql-users:/var/lib/mysql
+      - ./mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - myshop-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-p123"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  api:
+    build: ./api
+    container_name: api-for-myshop
+    depends_on:
+      mysql:
+        condition: service_healthy
+    environment:
+      DB_HOST: mysql-for-myshop
+      DB_USER: root
+      DB_PASSWORD: 123
+      DB_NAME: myshop_users
+    ports:
+      - "5000:5000"
+    networks:
+      - myshop-network
+
+  frontend:
+    build: ./frontend
+    container_name: frontend-for-myshop
+    depends_on:
+      - api
+    ports:
+      - "3000:80"
+    networks:
+      - myshop-network
+
+volumes:
+  mysql-users:
+
+networks:
+  myshop-network:
+    driver: bridge
